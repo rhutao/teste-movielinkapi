@@ -1,0 +1,17 @@
+.form-step {
+    font-family: Proxima Nova;
+    color: #414646;
+    margin: 0;
+}
+
+.main-input {
+    border: none;
+    border-bottom: 1px solid #C8D2BE;
+    color: #A0AFA0;
+    margin-bottom: 25px;
+}
+
+.main-input:focus{
+    outline: none;
+    border-bottom: 1px solid #a1a1a1;
+}

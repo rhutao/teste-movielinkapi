@@ -1,0 +1,82 @@
+.main-container {
+    margin: 40px 80px;
+
+    .logo-container {
+        display: flex;
+        margin-bottom: 100px;
+    
+        .logo-icon {
+            width: 150px;
+            margin-right: 10px;
+            color: #37B987;
+        }
+    
+        .logo-text {
+            font-family: Metropolis Semi;
+            font-size: 20px;
+            letter-spacing: 0px;
+            color: #37B987;
+        }
+    }
+
+    .central-container {
+        display: flex;
+        align-items: baseline;
+
+        .texto-container {
+            width: 359px;
+            height: 174px;
+            margin-right: 60px;
+    
+            .texto {
+                text-align: right;
+                color: #637463;
+                font-size: 23px;
+                font-family: Metropolis Regular;
+                line-height: 1.4;
+            }
+        }
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        margin-top: 40px;
+
+        .cancel-button {
+            font-family: Google Sans B;
+            text-decoration: none;
+            color: #A0AFA0;
+            margin-right: 20px;
+        }
+
+        .cancel-button:active {
+            color: #c7d2c7;
+        }
+
+        .save-button {
+            width: 120px;
+            height: 35px;
+            background: #3CC896 0% 0% no-repeat padding-box;
+            border-radius: 6px;
+            border: 0;
+            color: #fff;
+            font-family: Google Sans;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .save-button:active {
+            background: #49e1ab;
+        }
+
+        .save-button:focus{
+            outline: none;
+        }
+    }
+
+}
+
+

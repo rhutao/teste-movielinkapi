@@ -1,0 +1,28 @@
+<div class="main-container">
+    <div class="logo-container">
+        <img class="logo-icon" src="../../../assets/img/logo-verde.svg" alt="Logo">
+        <p class="logo-text">
+            movies
+        </p>
+    </div>
+
+    <div class="central-container">
+        <div class="texto-container">
+            <p class="texto">
+                It's time to create your profile and customize your experience in <b>LinkApi Movies</b>!
+            </p>
+        </div>
+
+        <div class="form-container">
+            <app-inputs [label]="label[i]" *ngFor="let item of label;let i = index"></app-inputs>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <a href="#" class="cancel-button">Cancel</a>
+        <button class="save-button">Save profile</button>
+    </div>
+
+</div>
+
+
