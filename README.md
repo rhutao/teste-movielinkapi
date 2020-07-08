@@ -1,7 +1,7 @@
-#OBJETIVO
+# OBJETIVO
 Consumir uma API e, com o resultado criar uma aplicação simulando uma plataforma online de filmes.
 
-#REQUISITOS
+# REQUISITOS
 - O projeto deverá ser desenvolvido preferencialmente em Angular
 - Pré-processador css: SCSS ou SASS
 - Caso queira, poderá utilizar Bootstrap 4
