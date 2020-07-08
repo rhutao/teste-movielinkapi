@@ -9,4 +9,18 @@
         </div>
         <i class="fa fa-user-circle user-icon" aria-hidden="true"></i>
     </div>
+    
+    <div class="filter-container">
+        <div class="search-container">
+            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+            <app-inputs [label]="label" [lblPlaceholder] = "lblPlaceholder" [customStyle]="style"></app-inputs>
+        </div>
+        <p class="favorites-filter">{{ filterState }}</p>
+    </div>
+
+    <div class="movies-container">
+        <div class="movie-card" *ngFor="let movie of movieCards; let i = index">
+            <img src="{{movieCards[i].poster}}" alt="" class="movie-poster">
+        </div>
+    </div>
 </div>

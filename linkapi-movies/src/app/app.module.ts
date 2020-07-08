@@ -7,6 +7,7 @@ import { CadastroPerfilComponent } from './screens/cadastro-perfil/cadastro-perf
 import { InputsComponent } from './components/inputs/inputs.component';
 import { UiComponentsComponent } from './screens/ui-components/ui-components.component';
 import { MoviesFeedComponent } from './screens/movies-feed/movies-feed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MoviesFeedComponent } from './screens/movies-feed/movies-feed.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

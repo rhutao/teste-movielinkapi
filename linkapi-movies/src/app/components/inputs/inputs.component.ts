@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InputsComponent implements OnInit {
   @Input() label: string; 
+  @Input() lblPlaceholder: string; 
+  @Input() customStyle: {};
 
 
   constructor() { }
