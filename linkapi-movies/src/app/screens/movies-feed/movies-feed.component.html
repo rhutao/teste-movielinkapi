@@ -7,20 +7,46 @@
                 movies
             </p>
         </div>
-        <i class="fa fa-user-circle user-icon" aria-hidden="true"></i>
+        <i class="fa fa-user-circle user-icon" aria-hidden="true"  (click)="goPerfil();"></i>
     </div>
     
     <div class="filter-container">
         <div class="search-container">
             <i class="fa fa-search search-icon" aria-hidden="true"></i>
-            <app-inputs [label]="label" [lblPlaceholder] = "lblPlaceholder" [customStyle]="style"></app-inputs>
+            <app-inputs [label]="label" [lblPlaceholder] = "lblPlaceholder" [customStyle]="style" [(ngModel)]="term" name="term" ngDefaultControl ></app-inputs>
         </div>
-        <p class="favorites-filter">{{ filterState }}</p>
+        <p class="favorites-filter" (click)="changeState()">{{ filterState }}</p>
     </div>
 
     <div class="movies-container">
-        <div class="movie-card" *ngFor="let movie of movieCards; let i = index">
-            <img src="{{movieCards[i].poster}}" alt="" class="movie-poster">
+        <div class="teste" *ngIf="filterState == 'Favorites'">
+            <div class="movie-card" *ngFor="let movie of movieCards | filter:term; let i = index">
+                <img src="{{movie.poster}}" alt="" class="movie-poster">
+                <p class="text-4filter">{{movie.title}}</p>
+                <p class="text-4filter">{{movie.genre}}</p>
+                <p class="text-4filter">{{movie.actors}}</p>
+                <div class="fav-container" (click)="isChangedBlock[i] = !isChangedBlock[i]; addFav(i)">
+                    <i class="fa fav-icon fa-heart-o" aria-hidden="true" [hidden]="isChangedBlock[i]" ></i>
+                </div>
+                <div class="fav-container" (click)="isChangedBlock[i] = !isChangedBlock[i]; removeFav(i)">
+                    <i class="fa fav-icon fa-heart" aria-hidden="true" [hidden]="!isChangedBlock[i]" ></i>
+                </div>
+            </div>
         </div>
+
+        <div class="teste" *ngIf="filterState == 'List All'">
+            <div class="movie-card" *ngFor="let movie of favMovie | filter:term; let i = index">
+                <img src="{{movie.poster}}" alt="" class="movie-poster">
+                <p class="text-4filter">{{movie.title}}</p>
+                <p class="text-4filter">{{movie.genre}}</p>
+                <p class="text-4filter">{{movie.actors}}</p>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="movie-card" *ngFor="let movie of movieCardsF |; let i = index">
+            <img src="{{movieCardsF[i].title}}" alt="" class="movie-poster">
+        </div> -->
     </div>
 </div>

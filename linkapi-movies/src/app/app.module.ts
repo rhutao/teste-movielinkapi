@@ -8,6 +8,8 @@ import { InputsComponent } from './components/inputs/inputs.component';
 import { UiComponentsComponent } from './screens/ui-components/ui-components.component';
 import { MoviesFeedComponent } from './screens/movies-feed/movies-feed.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     CadastroPerfilComponent,
     InputsComponent,
     UiComponentsComponent,
-    MoviesFeedComponent
+    MoviesFeedComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

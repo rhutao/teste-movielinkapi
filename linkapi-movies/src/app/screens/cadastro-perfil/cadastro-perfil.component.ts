@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-cadastro-perfil',
@@ -8,7 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CadastroPerfilComponent implements OnInit {
 
   label = ["Name", "Age", "Favorite Movie", "Favorite Genre"]
-  constructor() { }
+  constructor(private router: Router) { }
+
+  goMovies() {
+    this.router.navigate(['/movies-feed']);
+  }
 
   ngOnInit() {
   }
