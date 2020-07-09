@@ -7,6 +7,7 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
   url = "https://api-movies.gateway.linkapi.solutions/v1/movies";
 
@@ -27,7 +28,6 @@ export class MovieService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
-
 
   constructor(private http: HttpClient) { }
 }

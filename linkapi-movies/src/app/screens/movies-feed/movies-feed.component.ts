@@ -1,3 +1,4 @@
+import { MovieEntity } from './../../entities/movie-entity';
 import { MovieService } from '../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
@@ -16,8 +17,8 @@ export class MoviesFeedComponent implements OnInit {
     margin: "0 0 5px 10px"
   }
   filterState = "Favorites"
-  movieCards;
-  favMovie: [] = [];
+  movieCards: MovieEntity[] = [];
+  favMovie: MovieEntity[] = [];
   term: string;
 
   constructor(public movieService: MovieService, private router: Router) { }
@@ -40,13 +41,6 @@ export class MoviesFeedComponent implements OnInit {
     }
   }
 
-
-  // color:string = 'fa-heart-o';
-
-  // changeStyle($event){
-  //   this.color = $event.type == 'click' ? 'fa-heart' : 'fa-heart-o';
-  // }
-
   async ngOnInit() {
     this.getMovies();
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -55,24 +49,12 @@ export class MoviesFeedComponent implements OnInit {
   public isChangedBlock = {};
 
   removeFav(i) {
-    // for(i=0; i <= this.favMovie.length; i++) {
-    //   if(this.favMovie[i].title != this.movieCards[i].title) {
-    //     this.favMovie.push(this.movieCards[i]);
-    //   }
-    // }
-    // console.log("oi")
     console.log(this.movieCards[i])
-    this.favMovie.splice(this.movieCards[i],1);
+    this.favMovie.splice(i,1);
     console.log(this.favMovie);
   }
 
   addFav(i) {
-    // for(i=0; i <= this.favMovie.length; i++) {
-    //   if(this.favMovie[i].title != this.movieCards[i].title) {
-    //     this.favMovie.push(this.movieCards[i]);
-    //   }
-    // }
-
     console.log(this.movieCards[i])
     this.favMovie.push(this.movieCards[i]);
     console.log(this.favMovie);

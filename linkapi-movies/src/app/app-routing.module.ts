@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'ui-components', component: UiComponentsComponent },
   { path: 'movies-feed', component: MoviesFeedComponent },
   { path: '', redirectTo: '/cadastro-perfil', pathMatch: 'full' }
-
 ];
 
 @NgModule({
