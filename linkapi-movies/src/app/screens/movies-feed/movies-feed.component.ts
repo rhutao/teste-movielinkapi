@@ -27,6 +27,8 @@ export class MoviesFeedComponent implements OnInit {
   term: string;
   public isChangedBlock = {};
 
+  movieName;
+
   constructor(public movieService: MovieService, private router: Router, private spinner: NgxSpinnerService, private storageService: StorageService) { 
     this.movieList = 
     storageService.getData(movieListStorageKey) || this.movieCards;
@@ -54,30 +56,41 @@ export class MoviesFeedComponent implements OnInit {
 
   removeFav(i) {
     console.log(this.movieCards[i]);
-    for(var e in this.favMovie) {
-      if(this.movieCards[i] == this.favMovie[e]) {
-        var x = parseInt(e)
+    for(var x = 0; x <= this.favMovie.length; x++ ) {
+      if(this.favMovie[x] == this.movieCards[i]) {
+        console.log(this.favMovie[x]);
         this.favMovie.splice(x, 1);
-        break;
-      } else {
-        break
       }
     }
 
-    
+    // for(var e in this.favMovie) {
+    //   if(this.movieCards[i] == this.favMovie[e]) {
+    //     var x = parseInt(e)
+    //     this.favMovie.splice(x, 1);
+    //     break;
+    //   } else {
+    //     break
+    //   }
+    // }
     console.log(this.favMovie);
   }
 
   addFav(i) {
-    console.log(this.movieCards[i]);
     for(var e in this.movieCards) {
-      if(this.movieCards[i] == this.favMovie[e]){
-        break;
-      }else {
+      if(this.movieCards[e] == this.movieCards[i]) {
         this.favMovie.push(this.movieCards[i]);
         break;
       }
     }
+    console.log(this.movieCards[i]);
+    // for(var e in this.movieCards) {
+    //   if(this.movieCards[i] == this.favMovie[e]){
+    //     break;
+    //   }else {
+    //     this.favMovie.push(this.movieCards[i]);
+    //     break;
+    //   }
+    // }
     // this.favMovie.push(this.movieCards[i]);
     console.log(this.favMovie);
   }
