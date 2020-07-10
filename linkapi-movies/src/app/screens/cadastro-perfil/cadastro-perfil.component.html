@@ -14,7 +14,11 @@
         </div>
 
         <div class="form-container">
-            <app-inputs [label]="label[i]" *ngFor="let item of label;let i = index"></app-inputs>
+            <app-inputs [label]="label[0]" [(ngModel)]="value1" name ="value" ngDefaultControl value="{{value1}}"></app-inputs>
+            <app-inputs [label]="label[1]" [(ngModel)]="value2" name ="value" ngDefaultControl [value]="value2"></app-inputs>
+            <app-inputs [label]="label[2]" [(ngModel)]="value3" name ="value" ngDefaultControl [value]="value3"></app-inputs>
+            <app-inputs [label]="label[3]" [(ngModel)]="value4" name ="value" ngDefaultControl [value]="value4"></app-inputs>
+
         </div>
     </div>
 

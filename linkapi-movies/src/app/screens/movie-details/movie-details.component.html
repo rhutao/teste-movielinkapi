@@ -1,0 +1,73 @@
+
+
+<div class="main-container">
+    <div class="header-container">
+        <div class="logo-container">
+            <img class="logo-icon" src="../../../assets/img/logo-verde.svg" alt="Logo">
+            <p class="logo-text">
+                movies
+            </p>
+        </div>
+        <i class="fa fa-user-circle user-icon" aria-hidden="true"  (click)="goPerfil();"></i>
+    </div>
+    <div class="return-container" (click)="goMovies();">
+        <i class="fa fa-arrow-left return-icon" aria-hidden="true"></i>
+        <p class="return">Return</p>
+    </div>
+
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.47)" size="default" type="line-scale-party" ></ngx-spinner>
+    
+    <div class="movies-container-secundary">
+        <div class="movie-info-container" *ngFor="let movie of movieInfo; let i = index">
+            <div class="movie-info-container-primary">
+                <div class="title-container">
+                    <p class="movie-title">{{movie.title}}</p>
+                </div>
+    
+                <div class="movie-description-container">
+                    <div class="subcategory-main-container">
+                        <div class="subcategory-container-primary">
+                            <i class="fa fa-calendar-o subcategory-icon" aria-hidden="true"></i>
+                            <p class="subcategory-text">{{movie.year}}</p>
+                        </div>
+        
+                        <div class="subcategory-container-primary">
+                            <i class="fa fa-clock-o subcategory-icon" aria-hidden="true"></i>
+                            <p class="subcategory-text">{{movie.runtime}}</p>
+                        </div>
+        
+                        <div class="subcategory-container-primary">
+                            <p class="subcategory-text">{{movie.rated}}</p>
+                        </div>
+                    </div>
+        
+                    <div class="plot-main-container">
+                        <p class="plot-text">{{movie.plot}}</p>
+                    </div>
+        
+                    <div class="extra-info-main-container">
+                        <div class="extra-info-container">
+                            <p class="extra-info-title">Cast</p>
+                            <p class="extra-info-text">{{movie.actors}}</p>
+                        </div>
+        
+                        <div class="extra-info-container">
+                            <p class="extra-info-title">Genre</p>
+                            <p class="extra-info-text">{{movie.genre}}</p>
+                        </div>
+        
+                        <div class="extra-info-container">
+                            <p class="extra-info-title">Director</p>
+                            <p class="extra-info-text">{{movie.director}}</p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="poster-container">
+                <img src="{{movie.poster}}" alt="" class="poster">
+            </div>
+        </div>
+
+    </div>
+</div>

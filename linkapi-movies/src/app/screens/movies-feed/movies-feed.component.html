@@ -18,28 +18,38 @@
         <p class="favorites-filter" (click)="changeState()">{{ filterState }}</p>
     </div>
 
-    <div class="movies-container">
-        <div class="teste" *ngIf="filterState == 'Favorites'">
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.47)" size="default" type="line-scale-party"></ngx-spinner>
+
+    <div class="movies-container-primary">
+        <div class="movies-container-secundary" *ngIf="filterState == 'Favorites'">
             <div class="movie-card" *ngFor="let movie of movieCards | filter:term; let i = index">
-                <img src="{{movie.poster}}" alt="" class="movie-poster">
+                <img src="{{movie.poster}}" alt="" class="movie-poster" [routerLink]="['/movies-details', i]">
                 <p class="text-4filter">{{movie.title}}</p>
                 <p class="text-4filter">{{movie.genre}}</p>
                 <p class="text-4filter">{{movie.actors}}</p>
                 <div class="fav-container" (click)="isChangedBlock[i] = !isChangedBlock[i]; addFav(i)">
-                    <i class="fa fav-icon fa-heart-o" aria-hidden="true" [hidden]="isChangedBlock[i]" ></i>
+                    <i class="fa fav-icon fa-heart-o favIcon" aria-hidden="true" [hidden]="isChangedBlock[i]"></i>
                 </div>
                 <div class="fav-container" (click)="isChangedBlock[i] = !isChangedBlock[i]; removeFav(i)">
-                    <i class="fa fav-icon fa-heart" aria-hidden="true" [hidden]="!isChangedBlock[i]" ></i>
+                    <i class="fa fav-icon fa-heart favIcon" aria-hidden="true" [hidden]="!isChangedBlock[i]"></i>
                 </div>
             </div>
         </div>
 
-        <div class="teste" *ngIf="filterState == 'List All'">
+        <div class="movies-container-secundary" *ngIf="filterState == 'List All'">
             <div class="movie-card" *ngFor="let movie of favMovie | filter:term; let i = index">
-                <img src="{{movie.poster}}" alt="" class="movie-poster">
+                <img src="{{movie.poster}}" alt="" class="movie-poster" [routerLink]="['/movies-details', i]">
                 <p class="text-4filter">{{movie.title}}</p>
                 <p class="text-4filter">{{movie.genre}}</p>
                 <p class="text-4filter">{{movie.actors}}</p>
+            </div>
+        </div>
+
+        <div class="not-found-container" *ngIf="favMovie.length <= 0 && filterState == 'List All'">
+            <img src="../../../assets/img/not-found.png" alt="" class="not-found">
+            <div class="not-found-text-container">
+                <p class="not-found-text">No movies found!</p>
+                <p class="not-found-subtext">Reset your filters to find something.</p>
             </div>
         </div>
     </div>
