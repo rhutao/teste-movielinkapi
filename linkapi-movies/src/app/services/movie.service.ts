@@ -3,7 +3,9 @@ import { MovieEntity } from '../entities/movie-entity';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { StorageService } from '../services/storage.service';
 
+const movieListStorageKey = 'Movie';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +31,22 @@ export class MovieService {
     return throwError(errorMessage);
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private storageService: StorageService) { 
+    // storageService.getData(movieListStorageKey) || this.movieCards;
+  }
+
+  // addItem(item: MovieEntity) {
+  //   this.movieList.push(item);
+  //   this.storageService.setData(movieListStorageKey, this.movieCards);
+  // }
+
+  // updateItem(item: MovieEntity, changes) {
+  //   const index = this.movieList.indexOf(item);
+  //   this.movieList[index] = { ...item, ...changes };
+  //   this.storageService.setData(movieListStorageKey, this.movieList);
+  // }
+
+  // saveList() {
+  //   this.storageService.setData(todoListStorageKey, this.todoList);
+  // }
 }
